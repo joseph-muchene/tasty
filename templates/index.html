@@ -1,0 +1,44 @@
+{% extends 'base.html'%} {%block content%}
+
+<main>
+  <div class="container">
+    <div class="items">
+      {%for item in items%}
+      <div class="img">
+        <img src="../static/images/item-8.jpeg" alt="" srcset="" class="img" />
+      </div>
+
+      <div class="title">
+        <h1>{{item.title}}</h1>
+      </div>
+      <div class="descripption">
+        <p>{{item.description}}</p>
+      </div>
+      <div class="items__footer">
+        <a href="/delete/{{item.id}}"
+          ><button class="close"><i class="fas fa-times"></i></button
+        ></a>
+      </div>
+    </div>
+    <br />
+    <hr />
+    <br />
+    {%endfor%}
+  </div>
+  <div class="form">
+    <h3 class="form__header">Anything Tasty?</h3>
+    <form action="/submit" method="post">
+      <div class="form__group">
+        <label for="" class="label">Title</label>
+        <input type="text" name="title" />
+      </div>
+      <div class="form__group">
+        <label for="" class="label">description</label>
+        <input type="text" name="description" />
+      </div>
+      <input class="btn__submit" type="submit" value="submit" />
+    </form>
+  </div>
+</main>
+
+{%endblock%}
